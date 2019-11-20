@@ -343,7 +343,7 @@
                     <li><a href="{{URL::to('/all-manufacture')}}"><i class="icon-eye-open"></i><span class="hidden-tablet">ALL manufacture</span></a></li>
 
                     <li><a href="{{URL::to('/add-manufacture')}}"><i class="icon-dashboard"></i><span class="hidden-tablet">Add Manufacture
-                            </span></a></li>
+                                           </span></a></li>
                     <li>
 
 
@@ -354,7 +354,17 @@
 
                         </ul>
                     </li>
-                    <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet">slider</span></a></li>
+                    <li>
+
+
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">Slider</span><span class="label label-important"></span></a>
+                        <ul>
+                            <li><a class="submenu" href="{{url('add_slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add slider</span></a></li>
+                            <li><a class="submenu" href="{{url('all_slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All slider</span></a></li>
+
+                        </ul>
+                    </li>
+
 
                     <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet">social links</span></a></li>
 

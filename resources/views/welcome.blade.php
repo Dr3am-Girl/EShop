@@ -155,43 +155,31 @@
                     </ol>
 
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free E-Commerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="{{asset('frontend/images/home/girl1.jpg')}}" class="girl img-responsive" alt="" />
-                                <img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>100% Responsive Design</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="{{asset('frontend/images/home/girl2.jpg')}}" class="girl img-responsive" alt="" />
-                                <img src="{{asset('frontend/images/home/pricing.png')}}"  class="pricing" alt="" />
-                            </div>
-                        </div>
+                        @php
+                            $all_published_slider=DB::table('tbl_slider')
+                                ->where('publication_status',1)
+                                ->get();
+                        $i=0;
+                        @endphp
+                        @foreach($all_published_slider as $slider )
+                            <div class="item
+                                {{($i==0 ? "active" : "")}}
+                                @php
+                                $i=1;
+                                @endphp
+                             ">
+                                <div class="col-sm-6">
+                                    <h1><span>E</span>-SHOPPER</h1>
+                                    <h2>Free E-Commerce Template</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <button type="button" class="btn btn-default get">Get it now</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{URL::to($slider->slider_image)}}" style="height:200px;width:100%" class="girl img-responsive" alt="" />
 
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free Ecommerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <img src="{{asset('frontend/images/home/girl3.jpg')}}" class="girl img-responsive" alt="" />
-                                <img src="{{asset('frontend/images/home/pricing.png')}}" class="pricing" alt="" />
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
 
@@ -225,7 +213,7 @@
                         @foreach($all_published_category as $category )
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">{{$category->category_name}}</a></h4>
+                                    <h4 class="panel-title"><a href="{{URL::to('product_by_category/'.$sinle_category->category_id)}}">{{$category->category_name}}</a></h4>
                                 </div>
                             </div>
                         @endforeach

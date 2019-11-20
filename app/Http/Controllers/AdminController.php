@@ -223,7 +223,7 @@ class AdminController extends Controller{
         $data['product_color']=$re->product_color;
         $data['publication_status']=$re->publication_status;
         $image=$re->file('product_image');
-        if($image) {
+            if($image) {
             $image_name = rand();
             $ext = strtolower($image->getClientOriginalExtension());
             $image_full_name = $image_name . '.' . $ext;
@@ -231,19 +231,19 @@ class AdminController extends Controller{
             $image_url = $upload_path . $image_full_name;
             $success = $image->move($upload_path, $image_full_name);
             if ($success) {
-                $data['product_image'] = $image_url;
-                DB::table('tbl_product')->insert($data);
-                Session::put('message', 'added successfully!!');
-                return Redirect::to('/add_product');
+            $data['product_image'] = $image_url;
+            DB::table('tbl_product')->insert($data);
+            Session::put('message', 'added successfully!!');
+            return Redirect::to('/add_product');
             }
-        }
-        $data['product_image']='';
-        $dat=DB::table('tbl_product')->insert($data);
-        //Session::put('message','added successfully without image!!');
-        //return Redirect::to('/add_product');
-        return response()->json($dat);
+            }
+            $data['product_image']='';
+            $dat=DB::table('tbl_product')->insert($data);
+            //Session::put('message','added successfully without image!!');
+            //return Redirect::to('/add_product');
+            return response()->json($dat);
 
-    }
+            }
 
     public function all_product()
     {    $this->AdminAuthCheck();
@@ -315,6 +315,76 @@ class AdminController extends Controller{
 
 
     }
+
+
+    ///slider
+    public function add_slider(){
+        return view('admin.add_slider');
+    }
+    public function save_slider(Request $re){
+
+         $data=array();
+        $data['publication_status']=$re->publication_status;
+        $image=$re->file('slider_image');
+        if($image) {
+            $image_name = rand();
+            $ext = strtolower($image->getClientOriginalExtension());
+            $image_full_name = $image_name . '.' . $ext;
+            $upload_path = 'slider/';
+            $image_url = $upload_path . $image_full_name;
+            $success = $image->move($upload_path, $image_full_name);
+            if ($success) {
+                $data['slider_image'] = $image_url;
+                DB::table('tbl_slider')->insert($data);
+                Session::put('message', 'added successfully!!');
+                return Redirect::to('/add_slider');
+            }
+        }
+        $data['slider_image']='';
+        $dat=DB::table('tbl_slider')->insert($data);
+//Session::put('message','added successfully without image!!');
+//return Redirect::to('/add_product');
+        return response()->json($dat);
+
+
+    }
+    public function all_slider(){
+
+        $manage_slider = DB::table('tbl_slider')->get();
+
+        return view('admin.all_slider', compact('manage_slider'));
+        }
+    public function unactive_slider($slider_id)
+    {
+        DB::table('tbl_slider')
+            ->where('slider_id', $slider_id)
+            ->update(['publication_status' => 0]);
+        Session::put('message', 'unactive successfully!!');
+        return redirect()->back();
+
+    }
+
+    public function active_slider($slider_id)
+    {
+        DB::table('tbl_slider')
+            ->where('slider_id', $slider_id)
+            ->update(['publication_status' => 1]);
+        Session::put('message', 'activated successfully!!');
+        return redirect()->back();
+
+    }
+    public function delete_slider($slider_id)
+    {
+        DB::table('tbl_slider')
+            ->where('slider_id', $slider_id)
+            ->delete();
+        Session::get('message', 'deleted successfully!!');
+        return redirect()->back();
+
+
+    }
+
+
 
 }
 

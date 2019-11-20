@@ -54,3 +54,13 @@ Route::get('/active_product/{product_id}','AdminController@active_product');
 Route::get('/edit_product/{product_id}','AdminController@edit_product');
 Route::post('/update_product/{product_id}','AdminController@update_product');
 Route::get('/delete_product/{product_id}','AdminController@delete_product');
+
+
+
+//slider
+Route::get('/add_slider','AdminController@add_slider');
+Route::post('/save-slider','AdminController@save_slider');
+Route::get('/all_slider','AdminController@all_slider');
+Route::get('/unactive_slider/{slider_id}','AdminController@unactive_slider');
+Route::get('/active_slider/{slider_id}','AdminController@active_slider');
+Route::get('/delete_slider/{slider_id}','AdminController@delete_slider');

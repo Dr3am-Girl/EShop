@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2019 at 11:58 AM
+-- Generation Time: Nov 20, 2019 at 11:58 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -42,7 +42,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2019_11_07_050626_creates_tbl_admin_table', 1),
 (2, '2019_11_09_063643_create_tbl_category_table', 2),
 (3, '2019_11_12_054131_create_manufacture_table', 3),
-(4, '2019_11_12_075835_create_tbl_product_table', 4);
+(4, '2019_11_12_075835_create_tbl_product_table', 4),
+(5, '2019_11_20_050709_create_tbl_slider_table', 5);
 
 -- --------------------------------------------------------
 
@@ -158,6 +159,29 @@ INSERT INTO `tbl_product` (`product_id`, `product_name`, `category_id`, `manufac
 (12, 'dress', 2, 1, 'dress', 'dress', 1234.00, 'image/485670953.jpg', '34', 'black', 1, NULL, NULL),
 (14, 'dress', 2, 1, 'dress', 'dress', 1234.00, 'image/1732538676.jpg', '45', 'fg', 1, NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_slider`
+--
+
+CREATE TABLE `tbl_slider` (
+  `slider_id` int(10) UNSIGNED NOT NULL,
+  `slider_image` varchar(199) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `publication_status` varchar(199) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tbl_slider`
+--
+
+INSERT INTO `tbl_slider` (`slider_id`, `slider_image`, `publication_status`, `created_at`, `updated_at`) VALUES
+(2, 'slider/750463664.jpg', '1', NULL, NULL),
+(3, 'slider/2146379892.jpg', '1', NULL, NULL),
+(4, 'slider/1188788729.jpg', '1', NULL, NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -193,6 +217,12 @@ ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`product_id`);
 
 --
+-- Indexes for table `tbl_slider`
+--
+ALTER TABLE `tbl_slider`
+  ADD PRIMARY KEY (`slider_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -200,7 +230,7 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -225,6 +255,12 @@ ALTER TABLE `tbl_manufacture`
 --
 ALTER TABLE `tbl_product`
   MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `tbl_slider`
+--
+ALTER TABLE `tbl_slider`
+  MODIFY `slider_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
