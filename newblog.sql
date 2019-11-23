@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2019 at 11:58 AM
+-- Generation Time: Nov 23, 2019 at 07:47 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -95,7 +95,8 @@ INSERT INTO `tbl_category` (`category_id`, `category_name`, `category_descriptio
 (6, 'dgdfhrftghjry', 'dfvdfghrfyjjmtgjk', 1, NULL, NULL),
 (7, 'dgdfhrftghjry', 'dfvdfghrfyjjmtgjk', 1, NULL, NULL),
 (8, 'dgdfhrftghjry', 'dfvdfghrfyjjmtgjk', 1, NULL, NULL),
-(9, 'dgdfhrftghjry', 'dfvdfghrfyjjmtgjk', NULL, NULL, NULL);
+(9, 'dgdfhrftghjry', 'dfvdfghrfyjjmtgjk', NULL, NULL, NULL),
+(10, 'men', 'shirt', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,9 @@ INSERT INTO `tbl_product` (`product_id`, `product_name`, `category_id`, `manufac
 (10, 'dress', 2, 1, 'dress<br>', 'dress', 1234.00, 'image/2003959786.jpg', '34', 'royal blue', 1, NULL, NULL),
 (11, 'dress', 2, 1, 'dress', 'dress', 1234.00, 'image/1847562861.jpg', '34', 'olive green', 1, NULL, NULL),
 (12, 'dress', 2, 1, 'dress', 'dress', 1234.00, 'image/485670953.jpg', '34', 'black', 1, NULL, NULL),
-(14, 'dress', 2, 1, 'dress', 'dress', 1234.00, 'image/1732538676.jpg', '45', 'fg', 1, NULL, NULL);
+(14, 'dress', 2, 1, 'dress', 'dress', 1234.00, 'image/1732538676.jpg', '45', 'fg', 1, NULL, NULL),
+(15, 'shirt', 3, 1, 'shirt', 'shirt', 1234.00, 'image/841632333.jpg', '1234', 'black', 1, NULL, NULL),
+(16, 'shirt', 3, 1, 'fasdgv', 'gverfb', 34.00, 'image/1424590025.jpg', '34', 'fe', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -242,7 +245,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_manufacture`
@@ -254,7 +257,7 @@ ALTER TABLE `tbl_manufacture`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_slider`

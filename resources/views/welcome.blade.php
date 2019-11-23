@@ -213,7 +213,7 @@
                         @foreach($all_published_category as $category )
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="{{URL::to('product_by_category/'.$sinle_category->category_id)}}">{{$category->category_name}}</a></h4>
+                                    <h4 class="panel-title"><a href="{{URL::to('product_by_category/'.$category->category_id)}}">{{$category->category_name}}</a></h4>
                                 </div>
                             </div>
                         @endforeach
@@ -231,7 +231,7 @@
                                         ->get();
                                 @endphp
                                 @foreach($all_published_manufacture as $manufacture )
-                                <li><a href="#"> <span class="pull-right">(50)</span>{{$manufacture->manufacture_name}}</a></li>
+                                <li><a href="{{URL::to('product_by_manufacture/'.$manufacture->manufacture_id)}}"> <span class="pull-right">(50)</span>{{$manufacture->manufacture_name}}</a></li>
                                 @endforeach
 
                             </ul>

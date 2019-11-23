@@ -383,7 +383,51 @@ class AdminController extends Controller{
 
 
     }
+//show product by category
+    public function show_product_by_category($category_id){
 
+
+        $manage_product_by_category = DB::table('tbl_product')
+            ->join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')
+            ->join('tbl_manufacture','tbl_product.manufacture_id','=','tbl_manufacture.manufacture_id')
+            ->where('tbl_product.publication_status',1)
+            ->where('tbl_product.category_id',$category_id)
+            ->select('tbl_product.*','tbl_category.category_name','tbl_manufacture.manufacture_name')
+
+            ->get();
+
+        return view('pages.category_show_by_product', compact('manage_product_by_category'));
+
+    }
+    public function show_product_by_manufacture($manufacture_id){
+
+
+        $manage_product_by_manufacture = DB::table('tbl_product')
+            ->join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')
+            ->join('tbl_manufacture','tbl_product.manufacture_id','=','tbl_manufacture.manufacture_id')
+            ->where('tbl_product.publication_status',1)
+            ->where('tbl_product.manufacture_id',$manufacture_id)
+            ->select('tbl_product.*','tbl_category.category_name','tbl_manufacture.manufacture_name')
+
+            ->get();
+
+        return view('pages.manufacture_show_by_product', compact('manage_product_by_manufacture'));
+
+    }public function product_details_by_id($product_id){
+
+
+    $manage_product_by_details = DB::table('tbl_product')
+        ->join('tbl_category','tbl_product.category_id','=','tbl_category.category_id')
+        ->join('tbl_manufacture','tbl_product.manufacture_id','=','tbl_manufacture.manufacture_id')
+        ->where('tbl_product.publication_status',1)
+        ->where('tbl_product.product_id',$product_id)
+        ->select('tbl_product.*','tbl_category.category_name','tbl_manufacture.manufacture_name')
+
+        ->first();
+
+    return view('pages.product_details', compact('manage_product_by_details'));
+
+}
 
 
 }

@@ -13,8 +13,11 @@
 //frontend.............
 Route::get('/','HomeController@index');
 
+//show product by category here
 
-
+Route::get('/product_by_category/{category_id}','AdminController@show_product_by_category');
+Route::get('/product_by_manufacture/{manufacture_id}','AdminController@show_product_by_manufacture');
+Route::get('/view_product/{product_id}','AdminController@product_details_by_id');
 
 
 
